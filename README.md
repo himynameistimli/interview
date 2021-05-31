@@ -29,7 +29,8 @@
 
 ### Screenshots
 
-![Screenshot](assets/screenshots/1.png?raw=true "Screenshot")
-![Screenshot](assets/screenshots/1.png?raw=true "Screenshot")
-![Screenshot](assets/screenshots/1.png?raw=true "Screenshot")
-![Screenshot](assets/screenshots/1.png?raw=true "Screenshot")
+![Alt text](assets/screenshots/1.png?raw=true "Screenshot")
+![Alt text](assets/screenshots/2.png?raw=true "Screenshot")
+![Alt text](assets/screenshots/3.png?raw=true "Screenshot")
+![Alt text](assets/screenshots/4.png?raw=true "Screenshot")
+![Alt text](assets/screenshots/5.png?raw=true "Screenshot")
