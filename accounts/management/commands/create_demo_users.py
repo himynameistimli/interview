@@ -55,4 +55,15 @@ class Command(BaseCommand):
         accounts_models.UserFriends.objects.bulk_create(user_friend_obj_list)
         self.stdout.write('User Created Successfully')
 
+        user = accounts_models.User(username='user4@gmail.com',
+                                    username_type=UsernameType.EMAIL,
+                                    first_name='user4',
+                                    last_name='name',
+                                    email='user4@gmail.com',
+                                    is_email_verified=True,
+                                    user_type=UserType.CUSTOMER,
+                                    auth_provider=AuthProvider.DJANGO,
+                                    )
 
+        user.set_password('Password@123')
+        user.save()

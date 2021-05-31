@@ -162,13 +162,13 @@ LOGOUT_URL = '/'
 LOGIN_REDIRECT_URL = '/'
 
 # social auth
-AUTHENTICATION_BACKENDS = (
-    'django.contrib.auth.backends.ModelBackend',
-    'social_core.backends.open_id.OpenIdAuth',
-    # 'social_core.backends.google.GoogleOpenId',
-    'social_core.backends.google.GoogleOAuth2',
-    'social_core.backends.google.GoogleOAuth',
-)
+# AUTHENTICATION_BACKENDS = (
+#     'django.contrib.auth.backends.ModelBackend',
+#     'social_core.backends.open_id.OpenIdAuth',
+#     # 'social_core.backends.google.GoogleOpenId',
+#     'social_core.backends.google.GoogleOAuth2',
+#     'social_core.backends.google.GoogleOAuth',
+# )
 
 # Google Auth
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = ''

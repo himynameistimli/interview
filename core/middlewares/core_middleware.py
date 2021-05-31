@@ -1,5 +1,5 @@
 from django.shortcuts import redirect
-from django.urls import reverse
+from django.urls import reverse, resolve
 
 
 class RedirectMiddleware:
@@ -12,7 +12,9 @@ class RedirectMiddleware:
         current_user = request.user
         path = request.path
         login_url = reverse('accounts:login')
+        # admin_index = reverse('admin:index')
         if not current_user.is_authenticated and path not in [login_url]:
+            # pass
             return redirect(login_url)
 
         if current_user.is_authenticated and path in [login_url, ]:
