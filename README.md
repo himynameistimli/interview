@@ -13,7 +13,7 @@
 * python manage.py create_demo_users (to create demo users and make them friends of each other)
 * python manage.py populate_products (picks first user created and enter product details and assigns first user as
   seller)
-* 3 users are created user1@gmail.com,user2@gmail.com,user3@gmail.com with password <strong>Password@123</strong>
+* 4 users are created user1@gmail.com,user2@gmail.com,user3@gmail.com,user4@gmail.com with password <strong>Password@123</strong>
 * python manage.py runserver
 
 ## Flow
