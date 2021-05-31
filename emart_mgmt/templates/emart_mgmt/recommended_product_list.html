@@ -1,0 +1,56 @@
+
+
+{% if cv.recommended_product_list %}
+
+<h2 class="text-center fw-bold">Recommended Products</h2>
+<hr class="hr-dark">
+<div class="container">
+    <div class="row">
+        {% for product in cv.recommended_product_list %}
+        <div class="col-md-4">
+            <div class="card my-2">
+
+                <a href="{% url 'emart_mgmt:product_detail' product.id %}"><img
+                        src="{{ product.image }}"
+                        class="card-img-top"
+                        alt="Product image not found"
+                        height="240"
+                /></a>
+                <div class="card-body">
+                    <h5 class="card-title">{{ product.name|title }}</h5>
+                    <p class="card-text">
+                    <div class="d-flex justify-content-start flex-column">
+                        <span class="text-muted">{{ product.category_name|title }}</span>
+
+                        <span>Price: {{ product.sale_price }} &#8377;</span>
+
+                    </div>
+
+
+                    <div class="d-flex justify-content-center mt-1">
+                        {% if product.in_stock %}
+                        <a href="{% url 'emart_mgmt:product_detail' product.id %}"
+                           class="btn btn-primary btn-sm btn-success">Buy Now</a>
+                        {% else %}
+                        <a href="{% url 'emart_mgmt:product_detail' product.id %}"
+                           class="btn btn-primary btn-sm btn-danger">Out Of Stock</a>
+                        {% endif %}
+
+                        {% if product.seller_id == request.user.id %}
+                        <a href="{% url 'emart_mgmt:edit_product' product.id %}"
+                           class="btn btn-primary btn-sm btn-info">Edit</a>
+                        {% endif %}
+
+                    </div>
+
+                    </p>
+
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endif %}

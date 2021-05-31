@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block main %}
+<div class="container">
+    <div class="row mt-2 mt-md-5">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Add Product</div>
+                <div class="card-body">
+                    <div class="non-field-errors text-danger"></div>
+                    <form class="row g-3 ajax-form" id="book-form" method="post"
+                          data-url="{% if cv.product %} {% url 'emart_mgmt:edit_product' cv.product.id %}
+                           {% else %} {% url 'emart_mgmt:add_product' %}{% endif %}">
+                        <!-- hidden fields -->
+                        {% csrf_token %}
+
+                        <div class="mb-3 col-12">
+                            <label for="category_id" class="col-form-label">* Category </label>
+                            <select class="form-select" style="width:100% !important;"
+                                     id="category_id" name="category_id">
+                                <option value="0">---Select One---</option>
+                                {% for category in cv.category_list %}
+                                <option value="{{ category.id }}" {% if cv.product.category_id == category.id %} selected {% endif %}>{{ category.name }}</option>
+                                {% endfor %}
+                            </select>
+
+                            <div class="error-text"></div>
+                        </div>
+
+                        <div class="mb-3 col-12">
+                            <label for="name" class="col-form-label"> * Name:</label>
+                            <input type="text" id="name" name="name" class="form-control" value="{{ cv.product.name|default:'' }}">
+                            <div class="error-text"></div>
+                        </div>
+
+                        <div class="mb-3 col-12">
+                            <label for="image" class="col-form-label"> * Image Url (avoiding file upload as of now):</label>
+                            <input type="url" id="image" name="image" class="form-control" value="{{ cv.product.image|default:''}}">
+                            <div class="error-text"></div>
+                        </div>
+
+                        <div class="mb-3 col-6">
+                            <label for="price" class="col-form-label"> * Price :</label>
+                            <input type="text" id="price" name="price" class="form-control" value="{{ cv.product.price|default:0}}">
+                            <div class="error-text"></div>
+                        </div>
+
+                        <div class="mb-3 col-6">
+                            <label for="sale_price" class="col-form-label"> * Sell Price :</label>
+                            <input type="text" id="sale_price" name="sale_price" class="form-control" value="{{ cv.product.sale_price|default:0 }}">
+                            <div class="error-text"></div>
+                        </div>
+
+                        <div class="mb-3 col-6">
+
+                            * In Stock: <input type="checkbox" id="in_stock" name="in_stock" {% if cv.product.in_stock %} checked {% endif %}>
+                            <div class="error-text"></div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="d-flex flex-row justify-content-center">
+                                <button type="submit" class="btn btn-success mx-2 ">Confirm</button>
+                            </div>
+
+                        </div>
+                        <div class="col-4"></div>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

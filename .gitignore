@@ -1,0 +1,16 @@
+# Add any directories, files, or patterns you don't want to be tracked by version control
+*.pyc
+.idea
+*.log
+*.swp
+*.py.orig
+*.html.orig
+*/migrations/00*
+media/*
+static/*
+
+logs/*
+docs/build/*
+*/migrations/0*
+*/migrations/1*
+*.vscode

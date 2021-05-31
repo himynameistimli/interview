@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block main %}
+<div class="row mt-2 mt-md-5">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <div class="card">
+    <div class="card-header">Login</div>
+    <div class="card-body">
+        <div class="non-field-errors text-danger"></div>
+        <form class="row g-3 ajax-form" id="book-form" method="post"
+              data-url="{% url 'accounts:login' %}">
+            <!-- hidden fields -->
+            {% csrf_token %}
+
+            <div class="mb-3 col-12">
+                <label for="username" class="col-form-label"> * Username:</label>
+                <input type="text" id="username" name="username" class="form-control">
+                <div class="error-text"></div>
+            </div>
+
+            <div class="mb-3 col-12">
+                <label for="password" class="col-form-label"> Password:</label>
+                <input type="password" id="password" name="password" class="form-control" >
+                <div class="error-text"></div>
+            </div>
+
+
+            <div class="col-12">
+                <div class="d-flex flex-row justify-content-center">
+                    <button type="submit" class="btn btn-success mx-2 ">Login</button>
+                </div>
+
+            </div>
+            <div class="col-4"></div>
+
+        </form>
+    </div>
+</div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block friend_list %}
+
+
+<div class="d-flex flex-column">
+    <strong>List of usernames with password Password@123</strong>
+    <span>user1@gmail.com</span>
+    <span>user2@gmail.com</span>
+    <span>user3@gmail.com</span>
+</div>
+<br>
+{% endblock %}
